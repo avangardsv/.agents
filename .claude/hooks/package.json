@@ -3,9 +3,17 @@
   "module": "index.ts",
   "type": "module",
   "private": true,
+  "scripts": {
+    "typecheck": "tsc --noEmit",
+    "lint": "biome check .",
+    "lint:fix": "biome check . --write",
+    "format": "biome format . --write",
+    "check": "bun run typecheck && bun run lint"
+  },
   "devDependencies": {
     "@types/bun": "latest",
-    "@types/node": "^24.3.1"
+    "@types/node": "^24.3.1",
+    "@biomejs/biome": "^1.9.3"
   },
   "peerDependencies": {
     "typescript": "^5"
