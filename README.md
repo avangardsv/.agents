@@ -17,6 +17,7 @@ cp -r .claude/ ../your-project/
 ## What's Included
 
 ### 📁 `.claude/` Directory Structure
+
 ```
 .claude/
 ├── rules/                 # AI behavior rules and guidelines
@@ -42,7 +43,7 @@ This boilerplate is currently optimized for **Claude Code** with:
 
 - ✅ **TypeScript Hooks** - Full integration with Claude Code pipeline
 - ✅ **Auto-logging** - Captures every interaction in structured format
-- ✅ **Session tracking** - Time-based Variant B logging  
+- ✅ **Session tracking** - Time-based Variant B logging
 - ✅ **Smart titles** - Automatic categorization of requests
 - ✅ **Quality rules** - Security and code standards
 - ✅ **Communication guidelines** - Consistent AI behavior
@@ -50,6 +51,7 @@ This boilerplate is currently optimized for **Claude Code** with:
 ## Usage Patterns
 
 ### For New Projects
+
 ```bash
 # Copy the entire .claude structure
 cp -r .claude/ /path/to/new-project/
@@ -59,7 +61,8 @@ cd /path/to/new-project/.claude/hooks
 bun run index.ts
 ```
 
-### For Existing Projects  
+### For Existing Projects
+
 ```bash
 # Selectively copy what you need
 cp -r .claude/rules /path/to/project/.claude/
@@ -69,10 +72,12 @@ cp -r .claude/hooks /path/to/project/.claude/
 ## Hook System Setup
 
 ### Prerequisites
+
 - **Bun** installed (fast JavaScript runtime)
 - **Claude Code** with hooks support
 
 ### Quick Start
+
 ```bash
 # Navigate to hooks directory
 cd .claude/hooks
@@ -82,6 +87,7 @@ bun run index.ts
 ```
 
 ### What It Does
+
 - 🪝 **Intercepts every user prompt**
 - 📝 **Auto-creates logs** in `.claude/logs/YYYY-MM-DD.md`
 - 🎯 **Generates smart titles** based on request content
@@ -91,6 +97,7 @@ bun run index.ts
 ## Future AI Systems
 
 This boilerplate will expand to support:
+
 - **Gemini CLI** - Google's AI system
 - **OpenAI API** - ChatGPT integration
 - **Local models** - Ollama, LM Studio
@@ -101,21 +108,27 @@ Each AI system will have its own optimized configuration while maintaining the s
 ## Key Features
 
 ### 🔧 **Rules System**
+
 Standardized AI behavior patterns:
+
 - Communication style (concise, direct)
 - Owner engineering preferences
 - Quality standards (security-first)
 - Workflow patterns (TodoWrite usage)
 
 ### 📝 **Automatic Logging System**
+
 Comprehensive session tracking:
+
 - Time-based entries (`## HH:MM - Title`)
 - Structured Variant B format
 - TypeScript hooks for Claude Code
 - AI-readable simple structure
 
 ### 📚 **Documentation System**
+
 Ready-to-use documentation:
+
 - Agent development roadmap
 - Implementation guides
 - Best practices from real usage
@@ -123,14 +136,18 @@ Ready-to-use documentation:
 ## Customization
 
 ### Project-Specific Rules
+
 Edit files in `.claude/rules/` to match your:
+
 - Project requirements
-- Team standards  
+- Team standards
 - Compliance needs
 - Technology stack
 
 ### Hook Customization
+
 Modify `.claude/hooks/index.ts` for:
+
 - Different logging formats
 - Custom automation triggers
 - Integration with external systems
@@ -139,12 +156,14 @@ Modify `.claude/hooks/index.ts` for:
 ## Best Practices
 
 ### Implementation
+
 1. **Start simple** - Use basic logging and rules first
 2. **Run hooks** - Start `bun run index.ts` each session
 3. **Maintain consistency** - Use same patterns across projects
 4. **Document changes** - Keep customizations tracked
 
 ### Maintenance
+
 - **Version control** - Track changes to rules and workflows
 - **Regular updates** - Refine based on usage lessons
 - **Share improvements** - Contribute back to boilerplate
@@ -153,8 +172,9 @@ Modify `.claude/hooks/index.ts` for:
 ## Contributing
 
 This boilerplate improves through real usage. Please contribute:
+
 - New AI system integrations
-- Improved hook implementations  
+- Improved hook implementations
 - Better rule definitions
 - Usage pattern documentation
 
