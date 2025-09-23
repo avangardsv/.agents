@@ -20,30 +20,25 @@ async function logToDaily(prompt: string) {
   const today = new Date().toISOString().split('T')[0]; // YYYY-MM-DD
   const time = new Date().toTimeString().slice(0, 5); // HH:MM
 
+  // User prompts are general activities, log to main logs directory
+  const logsDir = path.join(process.cwd(), 'logs');
+  
   // Prepare the entry content
   const entry = `### ${time} - User Interaction
 - **Problem**: User submitted a new prompt for processing.
 - **Investigation**: Received prompt: "${prompt.substring(0, 80)}${prompt.length > 80 ? '...' : ''}"
 - **Solution**: Logged user input to daily file with timestamp.
 - **Outcome**: User prompt captured for team visibility and session tracking.
-- **Files**: logs/${today}.md, .claude/logs/${today}.md
+- **Files**: logs/${today}.md
 
 `;
 
-  // Log to both locations
-  const logLocations = [
-    path.join(process.cwd(), 'logs'),
-    path.join(process.cwd(), '.claude', 'logs'),
-  ];
-
-  for (const logsDir of logLocations) {
-    try {
-      await mkdir(logsDir, { recursive: true });
-      const logFile = path.join(logsDir, `${today}.md`);
-      await appendFile(logFile, entry);
-    } catch (error) {
-      console.error(`Failed to log to daily file in ${logsDir}:`, error);
-    }
+  try {
+    await mkdir(logsDir, { recursive: true });
+    const logFile = path.join(logsDir, `${today}.md`);
+    await appendFile(logFile, entry);
+  } catch (error) {
+    console.error(`Failed to log to daily file in ${logsDir}:`, error);
   }
 }
 
@@ -51,6 +46,23 @@ async function logToDaily(prompt: string) {
 async function logToolUsage(toolName: string, toolInput: any, toolResponse: any) {
   const today = new Date().toISOString().split('T')[0]; // YYYY-MM-DD
   const time = new Date().toTimeString().slice(0, 5); // HH:MM
+
+  // Determine if this is a .claude related activity
+  let isClaudeActivity = false;
+  let filePath = '';
+  
+  if (toolInput?.file_path) {
+    filePath = toolInput.file_path;
+    isClaudeActivity = filePath.includes('/.claude/');
+  } else if (toolInput?.path) {
+    filePath = toolInput.path;
+    isClaudeActivity = filePath.includes('/.claude/');
+  }
+
+  // Choose log location based on activity type
+  const logsDir = isClaudeActivity 
+    ? path.join(process.cwd(), '.claude', 'logs')
+    : path.join(process.cwd(), 'logs');
 
   let entry = `### ${time} - Tool Usage: ${toolName}\n`;
 
@@ -86,22 +98,16 @@ async function logToolUsage(toolName: string, toolInput: any, toolResponse: any)
     }
   }
 
-  entry += `- **Files**: logs/${today}.md, .claude/logs/${today}.md\n\n`;
+  // Update the Files line to reflect actual location
+  const logLocation = isClaudeActivity ? '.claude/logs' : 'logs';
+  entry += `- **Files**: ${logLocation}/${today}.md\n\n`;
 
-  // Log to both locations
-  const logLocations = [
-    path.join(process.cwd(), 'logs'),
-    path.join(process.cwd(), '.claude', 'logs'),
-  ];
-
-  for (const logsDir of logLocations) {
-    try {
-      await mkdir(logsDir, { recursive: true });
-      const logFile = path.join(logsDir, `${today}.md`);
-      await appendFile(logFile, entry);
-    } catch (error) {
-      console.error(`Failed to log tool usage to daily file in ${logsDir}:`, error);
-    }
+  try {
+    await mkdir(logsDir, { recursive: true });
+    const logFile = path.join(logsDir, `${today}.md`);
+    await appendFile(logFile, entry);
+  } catch (error) {
+    console.error(`Failed to log tool usage to daily file in ${logsDir}:`, error);
   }
 }
 
