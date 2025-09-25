@@ -6,13 +6,8 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ### Hook System
 ```bash
-# Start the hooks system (required for session tracking)
-cd .claude/hooks
-bun run index.ts
-
-# Install hook dependencies
-cd .claude/hooks
-bun install
+# Hooks start automatically with Claude Code
+# No manual setup or installation needed
 ```
 
 ### Session Data & Logs
@@ -82,7 +77,7 @@ This is an **AI Agents Boilerplate** repository designed to provide reusable Cla
 
 When working with this boilerplate:
 
-1. **Start hooks first**: Run `cd .claude/hooks && bun run index.ts` at session start
+1. **Hooks auto-start**: Automatically activate when Claude Code runs
 2. **Use TodoWrite** for multi-step tasks to maintain visibility  
 3. **Follow existing patterns** in rules/ for communication and workflow
 4. **Leverage auto-logging** for session tracking and debugging

@@ -56,9 +56,7 @@ This boilerplate is currently optimized for **Claude Code** with:
 # Copy the entire .claude structure
 cp -r .claude/ /path/to/new-project/
 
-# Start the hooks system
-cd /path/to/new-project/.claude/hooks
-bun run index.ts
+# Hooks activate automatically with Claude Code
 ```
 
 ### For Existing Projects
@@ -82,8 +80,7 @@ cp -r .claude/hooks /path/to/project/.claude/
 # Navigate to hooks directory
 cd .claude/hooks
 
-# Start the hook system (run once per session)
-bun run index.ts
+# Hooks run automatically when Claude Code is active
 ```
 
 ### What It Does
@@ -158,7 +155,7 @@ Modify `.claude/hooks/index.ts` for:
 ### Implementation
 
 1. **Start simple** - Use basic logging and rules first
-2. **Run hooks** - Start `bun run index.ts` each session
+2. **Hooks auto-start** - Activate automatically with Claude Code
 3. **Maintain consistency** - Use same patterns across projects
 4. **Document changes** - Keep customizations tracked
 
