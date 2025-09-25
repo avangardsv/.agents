@@ -6,8 +6,7 @@
 # Copy to your project
 cp -r .claude/ /path/to/your/project/
 
-# Start hooks (optional)
-cd .claude/hooks && bun install && bun run index.ts
+# Hooks start automatically with Claude Code
 ```
 
 ## Structure

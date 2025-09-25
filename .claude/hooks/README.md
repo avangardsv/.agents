@@ -67,13 +67,10 @@ The hooks system intercepts Claude Code events to provide:
 
 ## Usage
 
-### Starting the Hooks
+### Hook Activation
 ```bash
-# Navigate to hooks directory
-cd .claude/hooks
-
-# Start the hook system (run once per session)
-bun run index.ts
+# Hooks start automatically with Claude Code
+# No manual setup required
 ```
 
 ### Monitoring Output
@@ -167,15 +164,11 @@ if (payload.prompt.includes('dangerous-command')) {
 ### Common Issues
 ```bash
 # Hooks not triggering
-bun --version  # Ensure Bun is installed
-cd .claude/hooks && bun run index.ts  # Restart hooks
+# Ensure Claude Code has hooks support enabled
 
 # Log files not created
 mkdir -p .claude/logs  # Ensure directory exists
 chmod 755 .claude/logs  # Check permissions
-
-# TypeScript errors
-bun install  # Update dependencies
 ```
 
 ### Debug Mode
