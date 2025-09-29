@@ -11,9 +11,8 @@
     "check": "bun run typecheck && bun run lint"
   },
   "devDependencies": {
-    "@types/bun": "latest",
     "@types/node": "^24.3.1",
-    "@biomejs/biome": "^1.9.3"
+    "@biomejs/biome": "^2.2.3"
   },
   "peerDependencies": {
     "typescript": "^5"
