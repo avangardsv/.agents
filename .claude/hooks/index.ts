@@ -13,9 +13,10 @@ import type {
 } from './lib';
 import { runHook } from './lib';
 import { saveSessionData } from './session';
+import { $ } from "bun";
 
 const DANGEROUS_COMMANDS = ['rm -rf /', 'rm -rf ~'];
-const COMPLETION_SOUND_PATH = `${import.meta.dir}/sounds/completion.aiff`;
+const COMPLETION_SOUND_PATH = `${import.meta.dirname}/sounds/completion.aiff`;
 const TEST_FILE_PATTERNS = ['**/*.test.ts', '**/*.test.js'];
 const DANGEROUS_PROMPT_KEYWORDS = ['delete all'];
 
@@ -60,10 +61,8 @@ const stop: StopHandler = async (payload) => {
   await saveSessionData('Stop', { ...payload, hook_type: 'Stop' } as const);
 
   try {
-    await Bun.$`afplay ${COMPLETION_SOUND_PATH}`;
-  } catch (_error) {
-    // Sound failed silently
-  }
+    await $`afplay ${COMPLETION_SOUND_PATH}`;
+  } catch (_error) {}
 
   return {};
 };
