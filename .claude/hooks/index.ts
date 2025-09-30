@@ -47,7 +47,6 @@ const preToolUse: PreToolUseHandler = async (payload) => {
 
 const postToolUse: PostToolUseHandler = async (payload) => {
   await saveSessionData('PostToolUse', { ...payload, hook_type: 'PostToolUse' } as const);
-  await logger.logToolUsage(payload.tool_name, payload.tool_input, payload.tool_response);
 
   return {};
 };

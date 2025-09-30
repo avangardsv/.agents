@@ -20,20 +20,34 @@ cp -r .claude/ ../your-project/
 
 ```
 .claude/
+├── agents/                # 🤖 Autonomous AI agent definitions
+│   └── README.md         # Agent development roadmap and planning
 ├── rules/                 # AI behavior rules and guidelines
 │   ├── communication.md   # Communication style and verbosity
-│   ├── owner-preferences.md # Owner engineering preferences
+│   ├── README.md         # Rules system overview
 │   └── workflow.md        # Task management patterns
 ├── hooks/                 # 🔥 TypeScript hooks for Claude Code
 │   ├── index.ts          # Main hook configuration
 │   ├── lib.ts            # Hook infrastructure
 │   ├── session.ts        # Session persistence
-│   └── package.json      # Bun dependencies
+│   ├── biome.json        # Code formatting configuration
+│   ├── package.json      # Bun dependencies
+│   ├── tsconfig.json     # TypeScript configuration
+│   └── README.md         # Hook system documentation
+├── services/              # Shared service modules
+│   └── logger.ts         # Centralized logging service
+├── workflows/             # Workflow templates and patterns
+│   └── README.md         # Workflow definitions
 ├── docs/                  # Documentation and roadmaps
-│   └── agent-development-roadmap.md # Future development planning
+│   ├── README.md         # Documentation index
+│   ├── ROADMAP.md        # Development roadmap
+│   └── IMPROVEMENTS.md   # Enhancement tracking
 ├── logs/                  # 📝 Auto-generated session logs
-│   └── YYYY-MM-DD.md     # Daily session logs (Variant B format)
+│   └── YYYY-MM-DD.md     # Daily session logs (structured format)
+├── session/               # Session state persistence
+│   └── [session-id].json # Individual session data
 ├── exports/               # Claude Code conversation exports
+│   └── README.md         # Export guidelines
 └── settings.json          # Claude Code configuration
 ```
 
@@ -42,11 +56,12 @@ cp -r .claude/ ../your-project/
 This boilerplate is currently optimized for **Claude Code** with:
 
 - ✅ **TypeScript Hooks** - Full integration with Claude Code pipeline
-- ✅ **Auto-logging** - Captures every interaction in structured format
-- ✅ **Session tracking** - Time-based Variant B logging
-- ✅ **Smart titles** - Automatic categorization of requests
+- ✅ **Auto-logging** - Captures interactions via centralized logger service
+- ✅ **Session tracking** - JSON-based session persistence in `.claude/session/`
+- ✅ **Daily logs** - Structured markdown logs in `.claude/logs/`
 - ✅ **Quality rules** - Security and code standards
 - ✅ **Communication guidelines** - Consistent AI behavior
+- ✅ **Services architecture** - Modular logging and utilities
 
 ## Usage Patterns
 
@@ -85,9 +100,10 @@ cd .claude/hooks
 
 ### What It Does
 
-- 🪝 **Intercepts every user prompt**
+- 🪝 **Intercepts every user prompt** and tool usage
 - 📝 **Auto-creates logs** in `.claude/logs/YYYY-MM-DD.md`
-- 🎯 **Generates smart titles** based on request content
+- 💾 **Persists sessions** as JSON in `.claude/session/`
+- 🎯 **Structured logging** via centralized Logger service
 - ⚡ **Fast execution** with Bun runtime
 - 🔧 **Extensible** - Full TypeScript support
 
@@ -117,17 +133,20 @@ Standardized AI behavior patterns:
 
 Comprehensive session tracking:
 
-- Time-based entries (`## HH:MM - Title`)
-- Structured Variant B format
-- TypeScript hooks for Claude Code
-- AI-readable simple structure
+- Centralized Logger service (`.claude/services/logger.ts`)
+- Daily markdown logs (`.claude/logs/YYYY-MM-DD.md`)
+- Session JSON persistence (`.claude/session/*.json`)
+- Tool usage tracking
+- Structured, AI-readable format
 
 ### 📚 **Documentation System**
 
 Ready-to-use documentation:
 
-- Agent development roadmap
-- Implementation guides
+- Agent development roadmap (`.claude/docs/ROADMAP.md`)
+- Improvements tracking (`.claude/docs/IMPROVEMENTS.md`)
+- Agent planning (`.claude/agents/README.md`)
+- Workflow templates (`.claude/workflows/README.md`)
 - Best practices from real usage
 
 ## Customization
@@ -149,6 +168,15 @@ Modify `.claude/hooks/index.ts` for:
 - Custom automation triggers
 - Integration with external systems
 - Team-specific workflows
+
+### Logger Customization
+
+Extend `.claude/services/logger.ts` for:
+
+- Custom log formatting
+- Additional log destinations
+- Tool-specific logging logic
+- Integration with monitoring systems
 
 ## Best Practices
 
@@ -174,6 +202,13 @@ This boilerplate improves through real usage. Please contribute:
 - Improved hook implementations
 - Better rule definitions
 - Usage pattern documentation
+
+## Project Structure
+
+Additional files in repository root:
+
+- `CLAUDE.md` - AI assistant instructions for this repository
+- `temp/` - Temporary working directory
 
 ## License
 
