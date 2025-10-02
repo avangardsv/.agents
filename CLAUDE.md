@@ -18,8 +18,11 @@ ls .claude/session/
 # Check current session file
 ls -la .claude/session/*.json | tail -1
 
-# View today's daily log (user prompts)
-cat logs/$(date +%Y-%m-%d).md
+# View today's daily log
+cat .claude/logs/$(date +%Y-%m-%d).md
+
+# Log structure and usage
+cat .claude/logs/README.md
 ```
 
 ### Testing and Validation
@@ -62,10 +65,12 @@ This is an **AI Agents Boilerplate** repository designed to provide reusable Cla
 - **Structured JSON format** with timestamps and hook type information
 - **Git-ignored** for privacy while maintaining session continuity
 
-### Daily Logs (logs/)
-- **User prompts** automatically logged to `logs/YYYY-MM-DD.md`
-- **Simple markdown format** with timestamps for easy reading
+### Daily Logs (.claude/logs/)
+- **Auto-generated entries** via hooks to `.claude/logs/YYYY-MM-DD.md`
+- **Simplified format** - What/Result/Files structure
+- **Manual additions** for significant sessions using TEMPLATE.md
 - **Git-tracked** for team visibility and history
+- **See** `.claude/logs/README.md` for usage and `.claude/STRUCTURE.md` for overview
 
 ## Runtime Environment
 

@@ -42,12 +42,15 @@ cp -r .claude/ ../your-project/
 │   ├── README.md         # Documentation index
 │   ├── ROADMAP.md        # Development roadmap
 │   └── IMPROVEMENTS.md   # Enhancement tracking
-├── logs/                  # 📝 Auto-generated session logs
+├── logs/                  # 📝 Session logs (auto + manual)
+│   ├── README.md         # Log navigation and usage
+│   ├── TEMPLATE.md       # Template for manual entries
 │   └── YYYY-MM-DD.md     # Daily session logs (structured format)
 ├── session/               # Session state persistence
 │   └── [session-id].json # Individual session data
 ├── exports/               # Claude Code conversation exports
 │   └── README.md         # Export guidelines
+├── STRUCTURE.md           # 📊 Complete structure guide
 └── settings.json          # Claude Code configuration
 ```
 
@@ -138,6 +141,7 @@ Comprehensive session tracking:
 - Session JSON persistence (`.claude/session/*.json`)
 - Tool usage tracking
 - Structured, AI-readable format
+- **Simplified structure** - What/Result/Files format (see `.claude/logs/README.md`)
 
 ### 📚 **Documentation System**
 

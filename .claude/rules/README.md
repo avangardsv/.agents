@@ -1,58 +1,33 @@
-# Rules
+# Rules Directory
 
-This directory contains AI behavior rules and guidelines that standardize interactions across different projects and contexts.
+Purpose
+- Capture project-specific behavior guidelines for the assistant operating under `.agents/.claude`.
+- Define communication, planning, and safe execution aligned with this workspace.
 
-## Purpose
+Scope
+- Communication conventions and tone for this project.
+- Workflow patterns (plans, tool usage, validation, when to ask for approval).
+- Safety and code-quality guardrails specific to this repo.
 
-Rules define how AI assistants should behave, communicate, and operate. They provide consistency and ensure quality standards are maintained across all AI-assisted development work.
+Not included
+- Feature or product docs (use `../docs/`).
+- References, roadmaps, or architectural write-ups (use `../docs/`).
 
-## Current Rules
+Organization
+- `communication.md` — style, defaults, escalation.
+- `workflow.md` — plan cadence, patch practices, validation.
+- Add topic-focused rule files as needed; keep them concise.
 
-### `communication.md`
-- Communication style guidelines
-- Response format standards  
-- Verbosity and clarity requirements
-- Professional interaction patterns
+Usage
+- Follow these rules by default; they reflect local practice.
+- User instructions override rules if they conflict.
 
-### `owner-preferences.md`
-- Engineering preferences and standards
-- Code style requirements (TypeScript strict, ES Modules)
-- Technology stack preferences
-- Development workflow patterns
+Maintaining rules
+- Keep content short and actionable with brief rationale.
+- Prefer examples over long prose.
+- Update related docs/tests when rules affect process.
 
-### `workflow.md`
-- Task management patterns
-- TodoWrite usage guidelines
-- Progress tracking standards
-- Session management practices
+Relationship to docs
+- Rules = how we work.
+- Docs = how things work (`../docs/`).
 
-## Usage
-
-Rules are automatically applied by:
-- **Claude Code integration** - Rules are loaded from this directory
-- **Hook system** - `../hooks/index.ts` can enforce rule compliance
-- **Manual reference** - Developers can review for consistency
-
-## Customization
-
-### Project-Specific Rules
-- Copy this directory to new projects
-- Modify rules to match project requirements
-- Add new rule files for specific domains
-- Override sections as needed for compliance/team standards
-
-### Rule Development
-- Use clear, actionable language
-- Provide examples where helpful
-- Keep rules focused and specific
-- Test rules with real usage scenarios
-
-## Integration
-
-Rules integrate with:
-- **Hooks system** - Automatic enforcement via TypeScript
-- **Documentation** - Referenced in project READMEs
-- **Team workflows** - Shared standards across team members
-- **Quality gates** - Automated checking and validation
-
-These rules form the foundation for consistent, high-quality AI-assisted development across all projects using this boilerplate.
