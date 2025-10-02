@@ -48,6 +48,32 @@ const preToolUse: PreToolUseHandler = async (payload) => {
 const postToolUse: PostToolUseHandler = async (payload) => {
   await saveSessionData('PostToolUse', { ...payload, hook_type: 'PostToolUse' } as const);
 
+  // Log tool usage for better session tracking
+  if (payload.tool_name) {
+    let details = payload.tool_name;
+    let files: string[] | undefined;
+
+    // Extract meaningful details based on tool type
+    if (payload.tool_name === 'Read' && payload.tool_input && 'file_path' in payload.tool_input) {
+      const filePath = (payload.tool_input as { file_path: string }).file_path;
+      details = `Read ${filePath}`;
+      files = [filePath];
+    } else if (payload.tool_name === 'Write' && payload.tool_input && 'file_path' in payload.tool_input) {
+      const filePath = (payload.tool_input as { file_path: string }).file_path;
+      details = `Write ${filePath}`;
+      files = [filePath];
+    } else if (payload.tool_name === 'Edit' && payload.tool_input && 'file_path' in payload.tool_input) {
+      const filePath = (payload.tool_input as { file_path: string }).file_path;
+      details = `Edit ${filePath}`;
+      files = [filePath];
+    } else if (payload.tool_name === 'Bash' && payload.tool_input && 'command' in payload.tool_input) {
+      const cmd = (payload.tool_input as { command: string }).command;
+      details = `Bash: ${cmd.substring(0, 60)}${cmd.length > 60 ? '...' : ''}`;
+    }
+
+    await logger.logToolUsage(payload.tool_name, details, files);
+  }
+
   return {};
 };
 
@@ -58,6 +84,9 @@ const notification: NotificationHandler = async (payload) => {
 
 const stop: StopHandler = async (payload) => {
   await saveSessionData('Stop', { ...payload, hook_type: 'Stop' } as const);
+
+  // Log completion with summary
+  await logger.logCompletion('Task completed successfully');
 
   try {
     await $`afplay ${COMPLETION_SOUND_PATH}`;
