@@ -11,6 +11,11 @@ Contents
 - `ROADMAP.md` — High-level roadmap for agents and workflows.
 - `IMPROVEMENTS.md` — Iteration notes and proposed enhancements.
 - `rules.md` — Bridge doc explaining how rules differ from docs.
+- `simplified-logging.md` — **CURRENT**: Simplified prompt-based logging (2025-10-06).
+- `logging-system-fix-plan.md` — Original complex logging implementation plan (deprecated).
+- `logging-system-implementation.md` — Bug fix documentation (deprecated approach).
+
+Note: Logging template moved to `../hooks/LOGGING-TEMPLATE.md`
 
 Contributing
 - Keep docs practical and close to the implementation.
