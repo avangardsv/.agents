@@ -20,6 +20,9 @@ Unlike workflows (which are templates), agents are intelligent systems that adap
 - **Testing Orchestrator Agent** - Smart test management and execution
 - **Git Workflow Manager Agent** - Intelligent git operations
 
+### Logging Agent (New)
+- **prompt-logger** - Creates or updates today’s log after each prompt in `.claude/logs/YYYY-MM-DD.md`, using the example-based structure (Title + What/Why/How/Result/Files). See `prompt-logger.md`.
+
 ### Specialized Agents
 - **Environment Setup Agent** - Automated dev environment configuration
 - **Dependency Analyzer Agent** - Monitor and manage project dependencies
@@ -42,7 +45,7 @@ Agents will be implemented as:
 
 ## Current Status
 
-🔄 **Planning Phase** - We currently use the TypeScript hooks system in `../hooks/` for basic automation. Full autonomous agents are planned for future development phases.
+🔄 **Planning Phase** - We provide a logging subagent without modifying hooks. Full autonomous agents are planned for future development phases.
 
 See `../docs/agent-development-roadmap.md` for detailed implementation priorities and timeline.
 

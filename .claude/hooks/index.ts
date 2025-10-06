@@ -98,7 +98,14 @@ const userPromptSubmit: UserPromptSubmitHandler = async (payload) => {
     return { decision: 'block', reason: 'Prompts containing dangerous keywords are not allowed' };
   }
 
-  return contextFiles.length > 0 ? { contextFiles } : {};
+  // Append a lightweight logging note to the prompt unless the user already asked for logging
+  const mentionsLogging = /\b(log|logging|log entry|summary)\b/i.test(promptLowerCase);
+  const loggingNote = "\n\nAfter finishing, add a concise log entry to .claude/logs/YYYY-MM-DD.md using .claude/logs/TEMPLATE.md (What/Result/Files).";
+
+  const response: any = {};
+  if (contextFiles.length > 0) response.contextFiles = contextFiles;
+  if (!mentionsLogging) response.updatedPrompt = payload.prompt + loggingNote;
+  return response;
 };
 
 const preCompact: PreCompactHandler = async (payload) => {

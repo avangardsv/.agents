@@ -218,4 +218,25 @@ Additional files in repository root:
 
 Open source - use freely across projects and teams.
 
+
+## Claude Subagents (Logging)
+
+- Use `/.claude/agents/prompt-logger.md` to append a structured entry to `/.claude/logs/YYYY-MM-DD.md` after each prompt.
+- Entry structure mirrors your example: Title + What/Why/How/Result/Files.
+- See `/.claude/docs/logging-guide.md` for exact steps and formatting.
+
+## Sync To Project `.claude/`
+
+- Copy these into the target project’s `.claude/`:
+  - `agents/prompt-logger.md`
+  - `docs/logging-guide.md`
+  - Optionally: `docs/agents-boilerplate.md`
+- Example:
+  - `cp -f .claude/agents/prompt-logger.md /path/to/project/.claude/agents/`
+  - `cp -f .claude/docs/logging-guide.md /path/to/project/.claude/docs/`
+
+## Branch Docs (Example)
+
+- For branches like `poc/vod-chat-replay`, add a project doc: `/.claude/docs/branch-poc-vod-chat-replay.md` with goals, status, testing, next steps.
+
 ---
