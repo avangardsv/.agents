@@ -1,0 +1,27 @@
+/* shared/plugins/videojs-sprite-thumbnails/sprite-thumbnails.css */
+
+.vjs-progress-control {
+  position: relative; /* ensure absolute children position correctly */
+}
+
+.vjs-sprite-thumbnails {
+  position: absolute;
+  bottom: 100%; /* show above progress bar */
+  transform: translateY(-8px);
+  left: 0;
+  width: 160px; /* default; will be overridden inline from options */
+  height: 90px; /* default; will be overridden inline from options */
+  background-repeat: no-repeat;
+  background-position: 0 0;
+  background-size: cover;
+  border-radius: 4px;
+  box-shadow: 0 6px 14px rgba(0,0,0,0.35);
+  opacity: 0;
+  pointer-events: none;
+  z-index: 8; /* above progress UI */
+  transition: opacity 120ms ease;
+}
+
+.vjs-sprite-thumbnails--visible {
+  opacity: 1;
+}
