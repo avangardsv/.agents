@@ -1,11 +1,13 @@
-# Keep daily logs but ignore temporary files
+# OS
+.DS_Store
+Thumbs.db
+
+# Editor
+.idea/
+.vscode/
+*.swp
+
+# Temp
 *.tmp
 *.lock
-
-# Keep structure but allow logs to be committed for team visibility
-# Uncomment next line if you want to ignore all logs:
-# *.log
-
-# Ignore session files but allow markdown logs for team visibility
-.claude/session/
 temp/
