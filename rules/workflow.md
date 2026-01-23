@@ -145,7 +145,7 @@ shellcheck script.sh
 bash -n script.sh
 
 # General quality checks
-./scripts/validate_logs.sh
+npm run validate
 ./scripts/test_logging.sh
 ```
 
@@ -164,7 +164,7 @@ bash -n script.sh
 - **Verify network configurations**
 
 ### Monitoring and Logging
-- **Ensure logging integration** in all scripts
+- **Ensure logging integration** where applicable
 - **Validate log formats** and completeness
 - **Test monitoring configurations**
 - **Verify alert definitions**

@@ -6,8 +6,25 @@ Thumbs.db
 .idea/
 .vscode/
 *.swp
+*.swo
+*~
+
+# Dependencies
+node_modules/
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
 
 # Temp
 *.tmp
 *.lock
 temp/
+
+# Version files (version is in package.json)
+VERSION
+
+# Node
+node_modules/
+package-lock.json
+yarn.lock
+pnpm-lock.yaml

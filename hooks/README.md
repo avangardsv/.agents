@@ -2,20 +2,28 @@
 
 Blueprints for AI tool event hooks.
 
-## Files
+## ⚠️ Migration Notice
 
-| File | Purpose |
-|------|---------|
-| `claude-code-hooks.md` | Claude Code TypeScript hooks implementation |
+Hook implementations have been moved to `../tools/` directory for better organization:
+- **Claude Code hooks**: See `../tools/claude-code/hooks.md`
+- **Universal hook patterns**: See `../patterns/hook-patterns.md`
+
+This directory is kept for backward compatibility but will be deprecated.
+
+## New Structure
+
+For new projects, use:
+- `../patterns/hook-patterns.md` - Universal hook concepts
+- `../tools/{tool}/hooks.md` - Tool-specific implementations
+
+## Legacy Files
+
+| File | New Location |
+|------|--------------|
+| `claude-code-hooks.md` | `../tools/claude-code/hooks.md` |
 
 ## Usage
 
-These are documentation files describing how to implement event hooks for AI tools. Copy the relevant code to your project when needed.
-
-## Features Documented
-
-- Session tracking (JSON persistence)
-- Safety checks (block dangerous commands)
-- Sound notifications
-- Auto-context injection
-- Prompt filtering
+1. Read universal patterns: `../patterns/hook-patterns.md`
+2. Find your tool: `../tools/{your-tool}/adapter.md`
+3. Implement: `../tools/{your-tool}/hooks.md`

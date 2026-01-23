@@ -47,7 +47,13 @@ Agents will be implemented as:
 
 🔄 **Planning Phase** - We provide a logging subagent without modifying hooks. Full autonomous agents are planned for future development phases.
 
-See `../docs/agent-development-roadmap.md` for detailed implementation priorities and timeline.
+**Current Agents:**
+- `session-logger.md` - Session logging agent (see file for details)
+
+**Future Development:**
+- Agent registry system
+- Agent composition framework
+- Tool-agnostic agent patterns
 
 ## Integration with Hooks
 

@@ -1,0 +1,47 @@
+{
+  "name": "ai-agents-boilerplate",
+  "version": "1.0.0",
+  "description": "Reusable blueprints for AI assistant configurations. Documentation-only - no runtime files.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/your-org/agents.git"
+  },
+  "keywords": [
+    "ai",
+    "assistant",
+    "boilerplate",
+    "claude",
+    "cursor",
+    "prompts",
+    "rules",
+    "agents"
+  ],
+  "author": "",
+  "license": "MIT",
+  "scripts": {
+    "validate": "npm run validate:links && npm run validate:markdown",
+    "validate:links": "markdown-link-check README.md INDEX.md QUICKSTART.md CONTRIBUTING.md CHANGELOG.md docs/HISTORY.md docs/MIGRATION-PLAN.md --quiet",
+    "validate:markdown": "markdownlint '**/*.md' --ignore node_modules",
+    "version": "standard-version",
+    "release": "npm run version && git push --follow-tags"
+  },
+  "devDependencies": {
+    "markdown-link-check": "^0.11.1",
+    "markdownlint-cli2": "^0.15.0",
+    "standard-version": "^9.5.0"
+  },
+  "files": [
+    "agents/",
+    "prompts/",
+    "rules/",
+    "patterns/",
+    "tools/",
+    "templates/",
+    "docs/",
+    "README.md",
+    "INDEX.md",
+    "QUICKSTART.md",
+    "CONTRIBUTING.md",
+    "CHANGELOG.md"
+  ]
+}
