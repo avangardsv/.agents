@@ -232,6 +232,20 @@ npm run validate
 4. Resume original task when unblocked
 ```
 
+## Git Safety
+
+### Write Commands — FORBIDDEN
+NEVER execute git write commands. This includes:
+- `git add`, `git commit`, `git push`
+- `git rebase`, `git merge`, `git reset`
+- `git checkout` (for switching/creating branches)
+- `git cherry-pick`, `git revert`, `git tag`
+
+### Read Commands — ALLOWED
+- `git status`, `git diff`, `git log`
+- `git branch` (listing only)
+- `git show`, `git stash list`
+
 ---
 
 **Core Principle**: Maintain clear task visibility and efficient tool usage to maximize productivity while ensuring quality outcomes.
